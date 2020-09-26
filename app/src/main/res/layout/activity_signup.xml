@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm_signup"
+            type="com.ee.ecommerce.viewmodel.SignupViewModel" />
+    </data>
+
+    <RelativeLayout
+        tools:context=".ui.SignupActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            app:title="Registration"
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/toolbarThemeWhite"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <LinearLayout
+            android:layout_below="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/twentydp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="56dp">
+
+            <EditText
+                android:text="@={vm_signup.name}"
+                android:layout_width="match_parent"
+                android:autofillHints=""
+                android:layout_height="60dp"
+                android:background="@drawable/round_edittext"
+                android:drawableLeft="@drawable/ic_person_primary_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Name"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+
+            <EditText
+                android:text="@={vm_signup.email}"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/round_edittext"
+                android:drawableLeft="@drawable/ic_email_color_primary_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:text="@={vm_signup.password}"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/round_edittext"
+                android:drawableLeft="@drawable/ic_lock_color_primary_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+            <EditText
+                android:text="@={vm_signup.confirmedPassword}"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/round_edittext"
+                android:drawableLeft="@drawable/ic_lock_color_primary_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Confirmed Password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textSize="15dp" />
+
+            <Button
+                android:onClick="@{vm_signup::onSubmitClick}"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_button"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
