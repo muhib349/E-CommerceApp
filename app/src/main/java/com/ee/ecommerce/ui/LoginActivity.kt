@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel.successMessage.observe(this, Observer {
             makeToast(it)
             val intent = Intent(this,HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
         })
@@ -57,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel.loggedInUser.observe(this, Observer {
             if(it != null){
                 val intent = Intent(this,HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
             }

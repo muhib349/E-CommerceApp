@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.ee.ecommerce.data.db.dao.CartDao
 import com.ee.ecommerce.data.db.dao.UserDao
+import com.ee.ecommerce.data.db.entities.Cart
 import com.ee.ecommerce.data.db.entities.User
 
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Cart::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract val userDao: UserDao
+    abstract val cartDao: CartDao
 
 
     companion object{

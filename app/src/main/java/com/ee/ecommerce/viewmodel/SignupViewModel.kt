@@ -20,19 +20,17 @@ class SignupViewModel(private val userRepository: UserRepository) : ViewModel() 
 
 
     fun onSubmitClick(view: View){
+        if(name.isNullOrEmpty() || email.isNullOrEmpty() || password.isNullOrEmpty() || confirmedPassword.isNullOrEmpty() || password != confirmedPassword){
+            errorMessage.value = "Please Enter Valid Input!"
+            return
+        }
         Coroutines.main{
-            if(name.isNullOrEmpty() || email.isNullOrEmpty() || password.isNullOrEmpty() || confirmedPassword.isNullOrEmpty() || password != confirmedPassword){
-                errorMessage.value = "Please Enter Valid Input!"
-                return@main
-            }
             try {
                 userRepository.insertUser(User(0,name!!,email!!,password!!))
                 successMessage.value = "User registration successful"
             }catch (e: Exception){
                 errorMessage.value = e.message
             }
-
-
         }
     }
 }
